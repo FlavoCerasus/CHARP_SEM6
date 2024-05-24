@@ -78,7 +78,79 @@ Console.WriteLine($"Count of vowel letters is {countVowel}.");
 
 // Домашнее задание!
 
+/* Задача 1 - Задайте двумерный массив символов (тип char [,]). 
+Создать строку из символов этого массива.
+
+Пример:
+a b c 
+d e f ==> "abcdefghi"
+g h i
+*/
+/*
+char [,] CreateMatrixWithRandomLetters (int rowCount, int columnCount)
+{
+    char [,] matrix = new char [rowCount,columnCount];
+    for (int i = 0; i < matrix.GetLength(0); i++)
+        for (int j = 0; j < matrix.GetLength(1); j++)
+            matrix[i,j] = Convert.ToChar(new Random().Next('a', 'z' +1));
+    return matrix;
+}
+void ShowMatrix (char [,] matrix)
+{
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {   for (int j = 0; j < matrix.GetLength(1); j++)
+            Console.Write($"{matrix[i,j]} ");
+        Console.WriteLine();
+    }
+}
+string FromCharMatrixToString(char [,] matrix)
+{
+    string strOfMatrixElems = "";
+    for (int i = 0; i < matrix.GetLength(0); i++)
+        for (int j = 0; j < matrix.GetLength(1); j++)
+            strOfMatrixElems += matrix[i,j];
+    return strOfMatrixElems;
+}
+
+Console.Write("Enter the number of rows of the matrix: ");
+int rowUser = Convert.ToInt32(Console.ReadLine());
+Console.Write("Enter the number of columns of the matrix: ");
+int columnUser = Convert.ToInt32(Console.ReadLine());
+char [,] matrixHW1 = CreateMatrixWithRandomLetters(rowUser, columnUser);
+ShowMatrix(matrixHW1);
+string resultHWTask1 = FromCharMatrixToString(matrixHW1);
+Console.WriteLine($"The resulting string is: {resultHWTask1}");
+*/
+
+/* Задача 2 - Задайте строку, содержащую латинские буквы в обоих регистрах. 
+Сформируйте строку, в которой все заглавные буквы заменены на строчные.
+
+Пример:
+aBcD1ef!- ==> "abcd1ef!-"
+*/
 
 
+
+
+
+/* Задача 3 - Задайте произвольную строку. 
+Выясните, является ли она палиндромом.
+
+Пример:
+"aBcD1ef!-" ==> No
+"madam" ==> Yes
+"шалаш" ==> Yes
+"5576755" ==> Yes
+*/
+
+
+
+/* Задача 4 - Задайте строку, состоящую из слов, разделенных пробелами. 
+Сформировать строку, в которой слова расположены в обратном порядке. 
+В полученной строке слова должны быть также разделены пробелами.
+
+Пример:
+"Hello my world" ==> "world my Hello"
+*/
 
 
