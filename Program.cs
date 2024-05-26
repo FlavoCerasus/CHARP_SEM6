@@ -128,8 +128,12 @@ Console.WriteLine($"The resulting string is: {resultHWTask1}");
 Пример:
 aBcD1ef!- ==> "abcd1ef!-"
 */
-
-
+/*
+Console.Write("Enter the line: ");
+string UserString = Console.ReadLine();
+string resultHWTask2 = UserString.ToLower();
+Console.WriteLine(resultHWTask2);
+*/
 
 
 
@@ -139,11 +143,28 @@ aBcD1ef!- ==> "abcd1ef!-"
 Пример:
 "aBcD1ef!-" ==> No
 "madam" ==> Yes
-"шалаш" ==> Yes
 "5576755" ==> Yes
 */
+/*
+bool IsItPalindrome (string startString)
+{
+    bool areLettersSame = true;
+    for (int i = 0; i < startString.Length/2; i++)
+    {
+        if (startString[i] == startString[startString.Length - i -1])
+                areLettersSame = true;
+        else areLettersSame = false;    
+        if (areLettersSame == false) break;    
+    }
+    return areLettersSame;
+}
 
-
+Console.Write("Enter the line: ");
+string UserString = Console.ReadLine();
+if (IsItPalindrome(UserString) == true)
+    Console.WriteLine("It IS palindrome");
+    else Console.WriteLine("It IS NOT palindrome");
+*/
 
 /* Задача 4 - Задайте строку, состоящую из слов, разделенных пробелами. 
 Сформировать строку, в которой слова расположены в обратном порядке. 
@@ -153,4 +174,46 @@ aBcD1ef!- ==> "abcd1ef!-"
 "Hello my world" ==> "world my Hello"
 */
 
+string GetString (string [] array)
+{
+    string str_result = "";
+    foreach (string word in array)
+        str_result = str_result + word + ' '; 
+    return str_result;
+}
+int HowManyWords (string primaryStr)
+{
+    int count = 0;
+    foreach (char e in primaryStr)
+        if (e == ' ')
+            count ++;
+    count ++;
+    // Console.WriteLine($"Количество слов: {count}"); // показывает количество слов
+    return count;
+}
+string WordsInReverseOrder(string Str)
+{
+    string [] ReversedString = new string [HowManyWords(Str)];
+    int spaceIndex = 0;
+    for (int i = ReversedString.Length-1; i > 0; i--)
+        {    
+            for (int j = 0; j < Str.Length; j++)
+                {
+                    if (Str[j] == ' ') break;
+                    else 
+                    {
+                        ReversedString[i] += Str[j];
+                        spaceIndex = j+1;
+                    }
+                } 
+            Str = Str.Remove(0, spaceIndex+1);
+        }
+    ReversedString[0] = Str;
+    string result = GetString(ReversedString);
+    return result;
+}
 
+Console.Write("Enter the line: ");
+string userString = Console.ReadLine();
+string resultReversedString = WordsInReverseOrder(userString);
+Console.WriteLine(resultReversedString);
