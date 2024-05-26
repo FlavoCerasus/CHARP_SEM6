@@ -1,4 +1,4 @@
-﻿// Массивы и строки
+// Массивы и строки
 
 /* Задание 1 - Задайте массив символов (тип char []). 
 Создайте строку из символов этого массива.
@@ -173,7 +173,7 @@ if (IsItPalindrome(UserString) == true)
 Пример:
 "Hello my world" ==> "world my Hello"
 */
-
+/*
 string GetString (string [] array)
 {
     string str_result = "";
@@ -217,3 +217,4 @@ Console.Write("Enter the line: ");
 string userString = Console.ReadLine();
 string resultReversedString = WordsInReverseOrder(userString);
 Console.WriteLine(resultReversedString);
+*/
