@@ -1,0 +1,51 @@
+/* Задача 4 - Задайте строку, состоящую из слов, разделенных пробелами. 
+Сформировать строку, в которой слова расположены в обратном порядке. 
+В полученной строке слова должны быть также разделены пробелами.
+
+Пример:
+"Hello my world" ==> "world my Hello"
+*/
+
+string GetString (string [] array)
+{
+    string str_result = "";
+    foreach (string word in array)
+        str_result = str_result + word + ' '; 
+    return str_result;
+}
+int HowManyWords (string primaryStr)
+{
+    int count = 0;
+    foreach (char e in primaryStr)
+        if (e == ' ')
+            count ++;
+    count ++;
+    // Console.WriteLine($"Количество слов: {count}"); // показывает количество слов
+    return count;
+}
+string WordsInReverseOrder(string Str)
+{
+    string [] ReversedString = new string [HowManyWords(Str)];
+    int spaceIndex = 0;
+    for (int i = ReversedString.Length-1; i > 0; i--)
+        {    
+            for (int j = 0; j < Str.Length; j++)
+                {
+                    if (Str[j] == ' ') break;
+                    else 
+                    {
+                        ReversedString[i] += Str[j];
+                        spaceIndex = j+1;
+                    }
+                } 
+            Str = Str.Remove(0, spaceIndex+1);
+        }
+    ReversedString[0] = Str;
+    string result = GetString(ReversedString);
+    return result;
+}
+
+Console.Write("Enter the line: ");
+string userString = Console.ReadLine();
+string resultReversedString = WordsInReverseOrder(userString);
+Console.WriteLine(resultReversedString);
